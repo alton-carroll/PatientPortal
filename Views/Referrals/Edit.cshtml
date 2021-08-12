@@ -1,0 +1,85 @@
+﻿@model PatientPortal.Models.Referral
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+    <h4>Referral</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit" id="ReferralForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ReferralId" />
+                <div class="form-group">
+                    <label asp-for="ReferralDate"></label>
+                    <kendo-datetimepicker for="ReferralDate" />
+                    <span asp-validation-for="ReferralDate" class="text-danger k-invalid-msg" data-for="ReferralDate"></span>
+                 </div>
+                <div class="form-group">
+                    <label asp-for="Doctor"></label>
+                    <input asp-for="Doctor" class="k-textbox" />
+                    <span asp-validation-for="Doctor" class="text-danger k-invalid-msg" data-for="Doctor"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReferralDoctor"></label>
+                    <input asp-for="ReferralDoctor" class="k-textbox" />
+                    <span asp-validation-for="ReferralDoctor" class="text-danger k-invalid-msg" data-for="ReferralDoctor"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Procedure"></label>
+                    <input asp-for="Procedure" class="k-textbox" />
+                    <span asp-validation-for="Procedure" class="text-danger k-invalid-msg" data-for="Procedure"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Location"></label>
+                    <input asp-for="Location" class="k-textbox" />
+                    <span asp-validation-for="Location" class="text-danger k-invalid-msg" data-for="Location"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OpenedBy"></label>
+                    <input asp-for="OpenedBy" class="k-textbox" />
+                    <span asp-validation-for="OpenedBy" class="text-danger k-invalid-msg" data-for="OpenedBy"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OpenedOn"></label>
+                    <kendo-datetimepicker for="OpenedOn" />
+                    <span asp-validation-for="OpenedOn" class="text-danger k-invalid-msg" data-for="OpenedOn"></span>
+                 </div>
+                <div class="form-group">
+                    <label asp-for="EditedBy"></label>
+                    <input asp-for="EditedBy" class="k-textbox" />
+                    <span asp-validation-for="EditedBy" class="text-danger k-invalid-msg" data-for="EditedBy"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EditedOn"></label>
+                    <kendo-datetimepicker for="EditedOn" />
+                    <span asp-validation-for="EditedOn" class="text-danger k-invalid-msg" data-for="EditedOn"></span>
+                 </div>
+                <div class="form-group">
+                    <label asp-for="PatientId" class="control-label"></label>
+                    <select asp-for="PatientId" class="form-control" asp-items="ViewBag.PatientId"></select>
+                    <span asp-validation-for="PatientId" class="text-danger"></span>
+                    
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="k-button k-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="k-button">Back to List</a>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#ReferralForm").kendoValidator({
+                // You can define your custom rules here:
+                //rules: {}
+            });
+        })
+    </script>
