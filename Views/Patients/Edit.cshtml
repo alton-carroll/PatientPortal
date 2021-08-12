@@ -1,0 +1,149 @@
+﻿@model PatientPortal.Models.Patient
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+    <h4>Patient</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit" id="PatientForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="PatientId" />
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="k-textbox" />
+                    <span asp-validation-for="Title" class="text-danger k-invalid-msg" data-for="Title"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="k-textbox" />
+                    <span asp-validation-for="FirstName" class="text-danger k-invalid-msg" data-for="FirstName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MiddleName"></label>
+                    <input asp-for="MiddleName" class="k-textbox" />
+                    <span asp-validation-for="MiddleName" class="text-danger k-invalid-msg" data-for="MiddleName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="k-textbox" />
+                    <span asp-validation-for="LastName" class="text-danger k-invalid-msg" data-for="LastName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Suffix"></label>
+                    <input asp-for="Suffix" class="k-textbox" />
+                    <span asp-validation-for="Suffix" class="text-danger k-invalid-msg" data-for="Suffix"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Dob"></label>
+                    <kendo-datetimepicker for="Dob" />
+                    <span asp-validation-for="Dob" class="text-danger k-invalid-msg" data-for="Dob"></span>
+                 </div>
+                <div class="form-group">
+                    <label asp-for="Ssn"></label>
+                    <input asp-for="Ssn" class="k-textbox" />
+                    <span asp-validation-for="Ssn" class="text-danger k-invalid-msg" data-for="Ssn"></span>
+                </div>
+                <div class="form-group">
+                    @Html.Kendo().CheckBoxFor(m => m.Active)
+                    <label asp-for="Active"></label>
+                    <span asp-validation-for="Active" class="text-danger k-invalid-msg" data-for="Active"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Street"></label>
+                    <input asp-for="Street" class="k-textbox" />
+                    <span asp-validation-for="Street" class="text-danger k-invalid-msg" data-for="Street"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Apartment"></label>
+                    <input asp-for="Apartment" class="k-textbox" />
+                    <span asp-validation-for="Apartment" class="text-danger k-invalid-msg" data-for="Apartment"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City"></label>
+                    <input asp-for="City" class="k-textbox" />
+                    <span asp-validation-for="City" class="text-danger k-invalid-msg" data-for="City"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="State"></label>
+                    <input asp-for="State" class="k-textbox" />
+                    <span asp-validation-for="State" class="text-danger k-invalid-msg" data-for="State"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Zip"></label>
+                    <input asp-for="Zip" class="k-textbox" />
+                    <span asp-validation-for="Zip" class="text-danger k-invalid-msg" data-for="Zip"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrimaryInsurance"></label>
+                    <input asp-for="PrimaryInsurance" class="k-textbox" />
+                    <span asp-validation-for="PrimaryInsurance" class="text-danger k-invalid-msg" data-for="PrimaryInsurance"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrimaryInsuranceID"></label>
+                    <input asp-for="PrimaryInsuranceID" class="k-textbox" />
+                    <span asp-validation-for="PrimaryInsuranceID" class="text-danger k-invalid-msg" data-for="PrimaryInsuranceID"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrimaryInsuranceHolder"></label>
+                    <input asp-for="PrimaryInsuranceHolder" class="k-textbox" />
+                    <span asp-validation-for="PrimaryInsuranceHolder" class="text-danger k-invalid-msg" data-for="PrimaryInsuranceHolder"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SecondaryInsurance"></label>
+                    <input asp-for="SecondaryInsurance" class="k-textbox" />
+                    <span asp-validation-for="SecondaryInsurance" class="text-danger k-invalid-msg" data-for="SecondaryInsurance"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SecondaryInsuranceID"></label>
+                    <input asp-for="SecondaryInsuranceID" class="k-textbox" />
+                    <span asp-validation-for="SecondaryInsuranceID" class="text-danger k-invalid-msg" data-for="SecondaryInsuranceID"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SecondaryInsuranceHolder"></label>
+                    <input asp-for="SecondaryInsuranceHolder" class="k-textbox" />
+                    <span asp-validation-for="SecondaryInsuranceHolder" class="text-danger k-invalid-msg" data-for="SecondaryInsuranceHolder"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CreatedBy"></label>
+                    <input asp-for="CreatedBy" class="k-textbox" />
+                    <span asp-validation-for="CreatedBy" class="text-danger k-invalid-msg" data-for="CreatedBy"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Created"></label>
+                    <kendo-datetimepicker for="Created" />
+                    <span asp-validation-for="Created" class="text-danger k-invalid-msg" data-for="Created"></span>
+                 </div>
+                <div class="form-group">
+                    <label asp-for="ModifiedBy"></label>
+                    <input asp-for="ModifiedBy" class="k-textbox" />
+                    <span asp-validation-for="ModifiedBy" class="text-danger k-invalid-msg" data-for="ModifiedBy"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Modified"></label>
+                    <kendo-datetimepicker for="Modified" />
+                    <span asp-validation-for="Modified" class="text-danger k-invalid-msg" data-for="Modified"></span>
+                 </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="k-button k-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="k-button">Back to List</a>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#PatientForm").kendoValidator({
+                // You can define your custom rules here:
+                //rules: {}
+            });
+        })
+    </script>

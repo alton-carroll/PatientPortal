@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PatientPortal</title>
+    <title>@ViewData["Title"] - Patient Portal</title>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
@@ -24,9 +24,12 @@
 <body class="k-content">
     <nav class="navbar navbar-inverse navbar-fixed-top p-3">
         <div class="container p-0 p-sm-3">
+            <div class="col-md-2 mb-3">
+                <img class="img-fluid" alt="Medical Icon" src="~/Images/Medical-Icon.png" height="80" width="80">
+            </div>
             <div class="navbar-header">
                 <kendo-button name="configure" tag="button" icon="menu" class="k-rpanel-toggle k-primary btn-toggle"></kendo-button>
-                <a asp-controller="Home" asp-action="Index" class="navbar-brand">Your .NET Core Application</a>
+                <a asp-controller="Home" asp-action="Index" class="navbar-brand">Patient Management Portal</a>
             </div>
             <div id="responsive-panel" class="navbar-left">
                 <kendo-responsivepanel name="responsive-panel" auto-close="false" breakpoint="768" orientation="top">
@@ -34,6 +37,37 @@
                                 .Name("Menu")
                                 .Items(items =>
                                 {
+                                    items.Add().Text("Home").Action("Index", "Home", new { area = "" });
+                                    items.Add()
+                                            .Text("Patients")
+                                            .Items(children =>
+                                            {
+                                                children.Add().Text("Patient List").Action("Index", "Patients", new { area = "" });
+                                                children.Add().Text("Patient Search").Action("Search", "Patients", new { area = "" });
+                                            });
+                                    items.Add()
+                                            .Text("Appointments").Action("", "", new { area = "" })
+                                            .Items(children =>
+                                            {
+                                                children.Add().Text("Appointment List").Action("Index", "Appointments", new { area = "" });
+                                                children.Add().Text("Appointment Search");
+                                            });
+                                    items.Add()
+                                            .Text("Reports").Action("", "", new { area = "" })
+                                            .Items(children =>
+                                            {
+                                                children.Add().Text("Appointments");
+                                                children.Add().Text("Patient by Doctor");
+                                            });
+                                    items.Add()
+                                            .Text("Administration")
+                                            .Items(children =>
+                                            {
+                                                children.Add().Text("Doctor List").Action("Index", "Doctors", new { area = "" });
+                                                children.Add().Text("Add Medications");
+                                                children.Add().Text("Add Specialties");
+                                            });
+
                                     items.Add().Text("Home").Action("Index", "Home", new { area = "" });
                                     items.Add().Text("About").Action("About", "Home", new { area = "" });
                                     items.Add().Text("Contact").Action("Contact", "Home", new { area = "" });
@@ -51,13 +85,13 @@
     </main>
 
     <footer class="footer text-center d-flex align-items-center">
-        <div class="container pb-0">
-            <hr />
-            <p class="text-muted">
-                Copyright © @DateTime.Now.Year Progress Software Corporation and/or its subsidiaries or affiliates. All rights reserved.
-            </p>
+        <div class="container-fluid">
+            <div class="text-muted">
+                Copyright © @DateTime.Now.Year <img class="img-fluid" src="~/images/Spinsys-Icon.png" width="80" height="40" /> All rights reserved.
+            </div>
         </div>
     </footer>
+
 
     <environment names="Development">
         <script src="~/lib/bootstrap/js/bootstrap.js"></script>
