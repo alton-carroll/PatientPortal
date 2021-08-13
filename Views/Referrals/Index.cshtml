@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PatientPortal.Models.Referral>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@(Html.Kendo().Grid<PatientPortal.Models.Referral>()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(r => r.ReferralId);
+        columns.Bound(r => r.ReferralDate).Width(120);
+        columns.Bound(r => r.Doctor);
+        columns.Bound(r => r.ReferralDoctor);
+        columns.Bound(r => r.Procedure);
+        columns.Bound(r => r.Location).Width(120);
+        columns.Bound(r => r.OpenedBy);
+        columns.Bound(r => r.OpenedOn);
+        columns.Bound(r => r.EditedBy);
+        columns.Bound(r => r.EditedOn).Width(120);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+    })
+    .ToolBar(toolbar => toolbar.Create())
+    .Editable(editable => editable.Mode(GridEditMode.InLine).ConfirmDelete("Continue to delete this record?").DisplayDeleteConfirmation("Continue to delete this record?"))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:550px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Events(events => events.Error("error_handler"))
+        .Model(model => model.Id(r => r.ReferralId))
+        .Create(update => update.Action("EditingInline_Create", "Grid"))
+        .Read(read => read.Action("EditingInline_Read", "Grid"))
+        .Update(update => update.Action("EditingInline_Update", "Grid"))
+        .Destroy(update => update.Action("EditingInline_Destroy", "Grid"))
+    )
+)
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function() {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script>
+
+

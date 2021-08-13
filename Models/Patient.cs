@@ -24,7 +24,7 @@ namespace PatientPortal.Models
         public string LastName { get; set; }
         public string Suffix { get; set; }
 
-        [Display(Name = "Last Name")]
+        [Display(Name = "Full Name")]
         public string FullName
             {
             get { return FirstName + " " + MiddleName + " " + LastName + " " + Suffix; }

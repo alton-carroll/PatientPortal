@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PatientPortal.Data;
 
 namespace PatientPortal.Migrations
 {
     [DbContext(typeof(PatientPortalContext))]
-    partial class PatientPortalContextModelSnapshot : ModelSnapshot
+    [Migration("20210812212242_Referral")]
+    partial class Referral
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

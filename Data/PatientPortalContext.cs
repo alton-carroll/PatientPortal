@@ -15,5 +15,7 @@ namespace PatientPortal.Data
         }
 
         public DbSet<PatientPortal.Models.Patient> Patient { get; set; }
+
+        public DbSet<PatientPortal.Models.Referral> Referral { get; set; }
     }
 }
