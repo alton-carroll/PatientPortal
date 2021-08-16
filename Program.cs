@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using PatientPortal.Models;
+using PatientPortal.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace PatientPortal
     {
@@ -15,7 +18,23 @@ namespace PatientPortal
         {
         public static void Main(string[ ] args)
             {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+
+            using (var scope = host.Services.CreateScope())
+                {
+                var services = scope.ServiceProvider;
+
+                try
+                    {
+                    SeedData.Initialize(services);
+                    }
+                catch (Exception ex)
+                    {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An Error has occured seeding the Database!");
+                    }
+                }
+            host.Run();
             }
 
         public static IHostBuilder CreateHostBuilder(string[ ] args) =>

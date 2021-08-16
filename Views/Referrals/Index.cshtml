@@ -13,10 +13,10 @@
         columns.Bound(r => r.ReferralDoctor);
         columns.Bound(r => r.Procedure);
         columns.Bound(r => r.Location).Width(120);
-        columns.Bound(r => r.OpenedBy);
-        columns.Bound(r => r.OpenedOn);
-        columns.Bound(r => r.EditedBy);
-        columns.Bound(r => r.EditedOn).Width(120);
+        columns.Bound(r => r.CreatedBy);
+        columns.Bound(r => r.Created);
+        columns.Bound(r => r.ModifiedBy);
+        columns.Bound(r => r.Modified).Width(120);
         columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
     })
     .ToolBar(toolbar => toolbar.Create())

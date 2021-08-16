@@ -12,7 +12,7 @@ namespace PatientPortal.Models
         [Display(Name = "Patient ID")]
         [Key]
         public int PatientId { get; set; }
-        public string Title { get; set; }
+        public string Prefix { get; set; }
         [Display(Name = "First Name")]
         //[Required]
         public string FirstName { get; set; }
@@ -32,12 +32,12 @@ namespace PatientPortal.Models
 
         [Display(Name = "Date of Birth")]
         //[Required]
-        public DateTime Dob { get; set; }
+        public DateTime BirthDate { get; set; }
         [Display(Name = "Social Security Number")]
         //[Required]
         public string Ssn { get; set; }
         [Display(Name = "Active Patient?")]
-        public bool Active { get; set; }
+        public bool ActivePatient { get; set; }
 
         //[Required]
         public string Street { get; set; }
@@ -67,6 +67,10 @@ namespace PatientPortal.Models
         public string SecondaryInsuranceID { get; set; }
         [Display(Name = "Secondary Insurance Holder")]
         public string SecondaryInsuranceHolder { get; set; }
+        [Display(Name = "Has Outstanding Balance")]
+        [DataType(DataType.Currency)]
+        [Range(0, int.MaxValue)]
+        public Decimal CurrentBalance { get; set; }
 
         public string CreatedBy { get; set; }
         public DateTime Created { get; set; }
