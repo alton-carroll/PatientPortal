@@ -17,10 +17,10 @@ namespace PatientPortal.Models
         public string ReferralDoctor { get; set; }
         public string Procedure { get; set; }
         public string Location { get; set; }
-        public string OpenedBy { get; set; }
-        public DateTime OpenedOn { get; set; }
-        public string EditedBy { get; set; }
-        public DateTime EditedOn { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime Created { get; set; }
+        public string ModifiedBy { get; set; }
+        public DateTime Modified { get; set; }
        
         public Patient Patient { get; set; }
         public int PatientId { get; set; }

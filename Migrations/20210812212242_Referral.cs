@@ -18,10 +18,10 @@ namespace PatientPortal.Migrations
                     ReferralDoctor = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Procedure = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OpenedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OpenedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Created = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EditedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EditedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Modified = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PatientId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

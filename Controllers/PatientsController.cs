@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -86,7 +88,7 @@ namespace PatientPortal.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PatientId,Title,FirstName,MiddleName,LastName,Suffix,Dob,Ssn,Active,Street,Apartment,City,State,Zip,PrimaryInsurance,PrimaryInsuranceID,PrimaryInsuranceHolder,SecondaryInsurance,SecondaryInsuranceID,SecondaryInsuranceHolder,CreatedBy,Created,ModifiedBy,Modified")] Patient patient)
+        public async Task<IActionResult> Edit(int id, [Bind("PatientId,Prefix,FirstName,MiddleName,LastName,Suffix,BirthDate,Ssn,ActivePatient,Street,Apartment,City,State,Zip,PrimaryInsurance,PrimaryInsuranceID,PrimaryInsuranceHolder,SecondaryInsurance,SecondaryInsuranceID,SecondaryInsuranceHolder,CreatedBy,Created,ModifiedBy,Modified")] Patient patient)
         {
             if (id != patient.PatientId)
             {
@@ -149,5 +151,7 @@ namespace PatientPortal.Controllers
         {
             return _context.Patient.Any(e => e.PatientId == id);
         }
+
+        
     }
 }

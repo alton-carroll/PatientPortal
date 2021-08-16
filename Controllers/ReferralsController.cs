@@ -57,7 +57,7 @@ namespace PatientPortal.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ReferralId,ReferralDate,Doctor,ReferralDoctor,Procedure,Location,OpenedBy,OpenedOn,EditedBy,EditedOn,PatientId")] Referral referral)
+        public async Task<IActionResult> Create([Bind("ReferralId,ReferralDate,Doctor,ReferralDoctor,Procedure,Location,CreatedBy,Created,EditedBy,Modified,PatientId")] Referral referral)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace PatientPortal.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ReferralId,ReferralDate,Doctor,ReferralDoctor,Procedure,Location,OpenedBy,OpenedOn,EditedBy,EditedOn,PatientId")] Referral referral)
+        public async Task<IActionResult> Edit(int id, [Bind("ReferralId,ReferralDate,Doctor,ReferralDoctor,Procedure,Location,CreatedBy,Created,EditedBy,Modified,PatientId")] Referral referral)
         {
             if (id != referral.ReferralId)
             {

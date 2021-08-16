@@ -13,9 +13,9 @@
         <form asp-action="Create" id="PatientForm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group">
-                            <label asp-for="Title"></label>
-                            <input asp-for="Title" class="k-textbox" />
-                            <span asp-validation-for="Title" class="text-danger k-invalid-msg" data-for="Title"></span>
+                            <label asp-for="Prefix"></label>
+                            <input asp-for="Prefix" class="k-textbox" />
+                            <span asp-validation-for="Prefix" class="text-danger k-invalid-msg" data-for="Title"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="FirstName"></label>
@@ -38,9 +38,9 @@
                             <span asp-validation-for="Suffix" class="text-danger k-invalid-msg" data-for="Suffix"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Dob"></label>
-                            <kendo-datetimepicker for="Dob" />
-                            <span asp-validation-for="Dob" class="text-danger k-invalid-msg" data-for="Dob"></span>
+                            <label asp-for="BirthDate"></label>
+                            <kendo-datetimepicker for="BirthDate" />
+                            <span asp-validation-for="BirthDate" class="text-danger k-invalid-msg" data-for="Dob"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Ssn"></label>
@@ -48,9 +48,9 @@
                             <span asp-validation-for="Ssn" class="text-danger k-invalid-msg" data-for="Ssn"></span>
                         </div>
                         <div class="form-group">
-                            @Html.Kendo().CheckBoxFor(m => m.Active)
-                            <label asp-for="Active"></label>
-                            <span asp-validation-for="Active" class="text-danger k-invalid-msg" data-for="Active"></span>
+                            @Html.Kendo().CheckBoxFor(m => m.ActivePatient)
+                            <label asp-for="ActivePatient"></label>
+                            <span asp-validation-for="ActivePatient" class="text-danger k-invalid-msg" data-for="Active"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Street"></label>

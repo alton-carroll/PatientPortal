@@ -26,11 +26,14 @@ namespace PatientPortal.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("Active")
+                    b.Property<bool>("ActivePatient")
                         .HasColumnType("bit");
 
                     b.Property<string>("Apartment")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
@@ -41,8 +44,8 @@ namespace PatientPortal.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Dob")
-                        .HasColumnType("datetime2");
+                    b.Property<decimal>("CurrentBalance")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -57,6 +60,9 @@ namespace PatientPortal.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prefix")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PrimaryInsurance")
@@ -89,9 +95,6 @@ namespace PatientPortal.Migrations
                     b.Property<string>("Suffix")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Zip")
                         .HasColumnType("nvarchar(max)");
 
@@ -107,23 +110,23 @@ namespace PatientPortal.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Doctor")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EditedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("EditedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OpenedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("OpenedOn")
+                    b.Property<DateTime>("Modified")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PatientId")
                         .HasColumnType("int");
